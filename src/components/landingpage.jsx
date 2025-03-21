@@ -51,7 +51,7 @@ const LandingPage = () => {
       {/* Download Button */}
       <button
         className="absolute top-[75%] left-[35%] md:left-[60%] md:top-[60%] rounded-[10px] bg-blue-600 hover:bg-blue-700 h-[2rem] w-[10rem] text-white"
-        onClick={() => window.open("./RakeshResume.pdf")}
+        onClick={() => window.open(_, "./RakeshResume.pdf")}
       >
         Download CV
       </button>
