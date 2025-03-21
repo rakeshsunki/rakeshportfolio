@@ -1,0 +1,47 @@
+.Banner {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    background-image: url("./Space.webp");
+}
+
+.Banner .Slider {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: calc(50% - 50px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+}
+
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(0deg);
+    }
+
+    to {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(360deg);
+    }
+}
+
+.Banner .Slider .Item {
+    position: absolute;
+    background-color: black;
+    inset: 0;
+    transition-duration: 0.5s;
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(550px);
+    object-fit: cover;
+    filter: drop-shadow(0 0 1em whitesmoke);
+    padding: 1rem;
+}
+.Banner .Slider .Item:hover {
+   transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(550px) scale(1.2)
+}
+.Banner .Slider .Item img {
+    width: 100%;
+    height: 100%;
+}
