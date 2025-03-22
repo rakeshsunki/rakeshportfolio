@@ -13,7 +13,7 @@ function App() {
     <>
       <LandingPage />
       <button
-        className="sticky top-[90%] left-[90%] rounded-[50%] bg-white hover:bg-blue-700 h-[2rem] w-[2rem] text-black hover:text-white justify-items-center content-center z-10"
+        className="sticky top-[90%] left-[90%] rounded-[50%] bg-white hover:bg-blue-700 h-[2rem] w-[2rem] text-black hover:text-white !justify-items-center !content-center z-10"
         onClick={() => scrollTo({ top, behavior: "smooth" })}
       >
         <BsRocketFill />
