@@ -21,9 +21,6 @@ const Endpage = () => {
           onMouseEnter={() => setHover("Left")}
           onMouseLeave={() => setHover("")}
         >
-          <h1 className="text-black shadow-blue-400 text-xl md:text-2xl inline">
-            CONTACTS
-          </h1>
           <div
             className={` w-[100vw] h-[80vh] opacity-0 transition-all duration-[0.5s] !justify-center ${
               Hover === "Left" ? "opacity-[1]" : ""
@@ -31,6 +28,9 @@ const Endpage = () => {
           >
             <Contacts />
           </div>
+          <h1 className="text-black shadow-blue-400 text-xl md:text-2xl">
+            CONTACTS
+          </h1>
         </div>
         <div
           className={
