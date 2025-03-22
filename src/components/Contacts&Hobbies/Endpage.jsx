@@ -16,7 +16,7 @@ const Endpage = () => {
       >
         <div
           className={
-            "w-[100vw] h-[90vh] bg-white p-5 relative left-[-50%] justify-items-end"
+            "w-[100vw] h-[90vh] bg-white p-5 relative left-[-50%] !justify-items-end"
           }
           onMouseEnter={() => setHover("Left")}
           onMouseLeave={() => setHover("")}
@@ -25,7 +25,7 @@ const Endpage = () => {
             CONTACTS
           </h1>
           <div
-            className={` w-[100vw] h-[80vh] opacity-0 transition-all duration-[0.5s] justify-center ${
+            className={` w-[100vw] h-[80vh] opacity-0 transition-all duration-[0.5s] !justify-center ${
               Hover === "Left" ? "opacity-[1]" : ""
             }`}
           >
