@@ -21,7 +21,7 @@ const Endpage = () => {
           onMouseEnter={() => setHover("Left")}
           onMouseLeave={() => setHover("")}
         >
-          <h1 className="text-black shadow-blue-400 text-xl md:text-2xl">
+          <h1 className="text-black shadow-blue-400 text-xl md:text-2xl inline">
             CONTACTS
           </h1>
           <div
