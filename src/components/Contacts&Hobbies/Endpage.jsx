@@ -16,11 +16,14 @@ const Endpage = () => {
       >
         <div
           className={
-            "w-[100vw] h-[90vh] bg-white p-5 relative left-[-50%] flex justify-center items-center"
+            "w-[100vw] h-[90vh] bg-white p-5 relative left-[-50%] flex flex-wrap !justify-end !items-center"
           }
           onMouseEnter={() => setHover("Left")}
           onMouseLeave={() => setHover("")}
         >
+          <span className="text-black shadow-blue-400 text-xl md:text-2xl">
+            CONTACTS
+          </span>
           <div
             className={` w-[100vw] h-[80vh] opacity-0 transition-all duration-[0.5s] !justify-center ${
               Hover === "Left" ? "opacity-[1]" : ""
@@ -28,9 +31,6 @@ const Endpage = () => {
           >
             <Contacts />
           </div>
-          <h1 className="text-black shadow-blue-400 text-xl md:text-2xl">
-            CONTACTS
-          </h1>
         </div>
         <div
           className={
