@@ -16,7 +16,7 @@ const Endpage = () => {
       >
         <div
           className={
-            "w-[100vw] h-[90vh] bg-white p-5 relative left-[-50%] !justify-items-end"
+            "w-[100vw] h-[90vh] bg-white p-5 relative left-[-50%] flex justify-center items-center"
           }
           onMouseEnter={() => setHover("Left")}
           onMouseLeave={() => setHover("")}
