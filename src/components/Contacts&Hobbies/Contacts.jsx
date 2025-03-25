@@ -116,14 +116,20 @@ const Contacts = () => {
       </form>
 
       <div className="flex flex-col gap-4 w-1/2 text-gray-700">
-        <div className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border-1">
+        <a
+          href="https://github.com/rakeshsunki?tab=repositories"
+          className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border-1"
+        >
           <FaGithub className="text-gray-600" />
           <span>GitHub</span>
-        </div>
-        <div className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border-1">
+        </a>
+        <a
+          href="https://www.linkedin.com/in/rakesh-sunki-7b7911357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+          className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border-1"
+        >
           <FaLinkedin className="text-blue-600" />
           <span>LinkedIn</span>
-        </div>
+        </a>
         <div className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border-1">
           <IoCall className="text-green-600" />
           <span>9390575724</span>

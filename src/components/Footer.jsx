@@ -57,20 +57,12 @@ const Footer = () => {
             <FaGithub size={24} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/rakesh-sunki-7b7911357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app "
             target="_blank"
             rel="noopener noreferrer"
             className="social-icon"
           >
             <FaLinkedin size={24} />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-icon"
-          >
-            <FaTwitter size={24} />
           </a>
         </div>
       </div>
