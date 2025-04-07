@@ -17,7 +17,9 @@ const Typewriter = ({ text, speed = 100, delay = 1500 }) => {
     }
   }, [index, text, speed, delay]);
 
-  return <span className="text-black font-mono">{text.slice(0, index)}</span>;
+  return (
+    <span className="text-black font-[cursive]">{text.slice(0, index)}</span>
+  );
 };
 
 export default Typewriter;

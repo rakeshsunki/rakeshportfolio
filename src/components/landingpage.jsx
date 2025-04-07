@@ -5,10 +5,10 @@ import Typewriter from "./typewriter";
 import styles from "./landingpage.module.css";
 
 const LandingPage = () => {
-  const para = "Front End Developer Welcome To My Portfolio";
+  const para = "Full Stack Developer Welcome To My Portfolio";
   const [Sidebarstate, Setsidebar] = useState(false);
 
-  // ✅ Prevent page scroll when sidebar is open
+  // Prevent page scroll when sidebar is open
   useEffect(() => {
     document.body.style.overflow = Sidebarstate ? "hidden" : "auto";
   }, [Sidebarstate]);
@@ -32,8 +32,8 @@ const LandingPage = () => {
 
       {/* Right Section */}
       <div className="w-screen h-2/3 md:w-2/3 md:h-screen bg-red-200 flex items-center justify-center p-[1rem]">
-        <div className={styles.Role}>
-          <h1 className="font-mono text-4xl">Hi I am a</h1>
+        <div className="justify-items-center">
+          <h1 className="font-serif text-4xl">Hi I am a</h1>
           <Typewriter text={para} speed={150} delay={2000} />
         </div>
       </div>
@@ -50,7 +50,7 @@ const LandingPage = () => {
 
       {/* Download Button */}
       <button
-        className="absolute top-[75%] left-[35%] md:left-[60%] md:top-[60%] rounded-[10px] bg-blue-600 hover:bg-blue-700 h-[2rem] w-[10rem] text-white"
+        className="absolute top-[75%] left-[30%] md:left-[60%] md:top-[60%] rounded-[10px] bg-blue-600 hover:bg-blue-700 h-[2rem] w-[10rem] text-white"
         onClick={() => window.open("./RakeshResume.pdf", "_blank")}
       >
         Download CV
