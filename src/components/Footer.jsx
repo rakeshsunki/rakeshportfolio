@@ -14,7 +14,7 @@ const Footer = () => {
             Made with <IoHeart className="text-red-600" /> By Rakesh Sunki
           </h2>
           <p className="text-sm text-gray-400">
-            © {Date.now.toString()} All Rights Reserved
+            © {new Date().getFullYear()} All Rights Reserved
           </p>
         </div>
 
