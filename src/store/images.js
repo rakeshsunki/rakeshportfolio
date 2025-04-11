@@ -44,7 +44,7 @@ const IMAGES=[
         link:"BOOTSTRAP.svg"
     },
     {
-        name:"TAILWIND CSS",
+        name:"TAILWINDCSS",
         link:"TAILWINDCSS.svg"
     },
     {
