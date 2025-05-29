@@ -5,11 +5,21 @@ import {
   FaPython,
   FaHtml5,
   FaCss3Alt,
+  FaNodeJs,
 } from "react-icons/fa";
 import { TbMathMax } from "react-icons/tb";
 import { FaJsSquare } from "react-icons/fa";
 import { SiCplusplus } from "react-icons/si";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { SiMongodb, SiMongoose } from "react-icons/si";
 export const ProjectsList = [
+  {
+    name: "Airbnb",
+    previewShot: "./Airbnb.PNG",
+    github: "https://github.com/rakeshsunki/Airbnb.git",
+    play: "https://airbnb-50pt.onrender.com",
+    icons: [<FaNodeJs />, <SiMongodb />, <RiTailwindCssFill />, <SiMongoose />],
+  },
   {
     name: "Amazon Clone",
     previewShot: "./amazon.png",
