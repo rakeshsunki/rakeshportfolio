@@ -20,6 +20,8 @@ const Skills = () => {
         <ToggleButton isOn={isOn} setIsOn={setIsOn} />
       </center>
       {isOn ? (
+        <Spinner />
+      ) : (
         <div className="m-10 h-[60vh] flex justify-center">
           <div className={styles.slider}>
             <div className={styles.slidertrack}>
@@ -32,8 +34,6 @@ const Skills = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <Spinner />
       )}
     </>
   );

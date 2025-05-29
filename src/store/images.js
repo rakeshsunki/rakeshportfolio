@@ -24,6 +24,18 @@ const IMAGES=[
         link:"SQL.svg"
     },
     {
+        name:"MongoDB",
+        link:"MongoDB.svg"
+    },
+    {
+        name:"Mongoose",
+        link:"Mongoose.svg"
+    },
+    {
+        name:"NODE JS",
+        link:"Node-js.svg"
+    },
+    {
         name:"HTML",
         link:"html.svg"
     },
@@ -59,8 +71,7 @@ const IMAGES=[
         name:"POWER BI",
         link:"POWERBI.svg"
     },
-    {
-        name:"MACHINE LEARNING",
-        link:"MACHINE.svg"
-    },
+    
+    
+    
 ]; export default IMAGES;

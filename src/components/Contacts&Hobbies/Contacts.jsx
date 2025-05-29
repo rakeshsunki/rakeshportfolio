@@ -50,10 +50,9 @@ const Contacts = () => {
 
   return (
     <div
-      className="bg-white p-5 rounded-lg max-w-2xl mx-auto flex flex-row gap-6"
-      style={{ boxShadow: "5px 5px 5px gray", border: "1px solid gray" }}
+      className="bg-white p-3 sm:p-5 rounded-lg max-w-full sm:max-w-2xl mx-auto flex flex-col md:flex-row gap-6 shadow-md border border-gray-300"
     >
-      <form className="flex flex-col gap-4 w-1/2" onSubmit={sendEmail}>
+      <form className="flex flex-col gap-4 w-full md:w-1/2" onSubmit={sendEmail}>
         <div className="flex items-center gap-2 border border-gray-300 p-2 rounded-lg">
           <IoPerson className="text-gray-500" size={20} />
           <input
@@ -115,26 +114,26 @@ const Contacts = () => {
         )}
       </form>
 
-      <div className="flex flex-col gap-4 w-1/2 text-gray-700">
+      <div className="flex flex-col gap-4 w-full md:w-1/2 text-gray-700 mt-6 md:mt-0">
         <a
           href="https://github.com/rakeshsunki?tab=repositories"
-          className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border-1"
+          className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border border-gray-300 py-2 transition"
         >
           <FaGithub className="text-gray-600" />
           <span>GitHub</span>
         </a>
         <a
           href="https://www.linkedin.com/in/rakesh-sunki-7b7911357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-          className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border-1"
+          className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border border-gray-300 py-2 transition"
         >
           <FaLinkedin className="text-blue-600" />
           <span>LinkedIn</span>
         </a>
-        <div className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border-1">
+        <div className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border border-gray-300 py-2 transition">
           <IoCall className="text-green-600" />
           <span>9390575724</span>
         </div>
-        <div className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border-1">
+        <div className="flex items-center justify-center gap-2 rounded-[10px] hover:bg-blue-500 hover:text-white border border-gray-300 py-2 transition">
           <IoLocation className="text-red-600" />
           <span>Siddipet, Telangana</span>
         </div>

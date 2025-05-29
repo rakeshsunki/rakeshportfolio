@@ -2,6 +2,14 @@ import styles from "./projectstyles.module.css";
 import { FaCode } from "react-icons/fa6";
 import { IoMdPlay } from "react-icons/io";
 
+const hoverColors = [
+  "hover:bg-blue-900",
+  "hover:bg-violet-900",
+  "hover:bg-emerald-900",
+  "hover:bg-pink-900",
+  "hover:bg-yellow-900",
+];
+
 const Cards = ({ project }) => {
   return (
     <div className={styles.flipcard}>
@@ -19,7 +27,7 @@ const Cards = ({ project }) => {
               project.icons.map((icon, index) => (
                 <span
                   key={index}
-                  className="text-white bg-slate-900 rounded-[50%] text-4xl p-1.5"
+                  className={`text-white bg-slate-900 rounded-[50%] text-4xl p-1.5 transition-colors duration-300 ${hoverColors[index % hoverColors.length]}`}
                 >
                   {icon}
                 </span>
