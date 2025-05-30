@@ -14,8 +14,12 @@ const Cards = ({ project }) => {
   return (
     <div className={styles.flipcard}>
       <div className={styles.card}>
-        <div className={styles.front}>
-          <h1>{project.name}</h1>
+        <div
+          className={`${styles.front} flex items-center justify-center rounded-2xl bg-gradient-to-br from-slate-900 via-blue-900 to-blue-700 shadow-xl`}
+        >
+          <h1 className="text-blue-200 text-lg md:text-xl font-semibold tracking-wide text-center drop-shadow px-4 py-4">
+            {project.name}
+          </h1>
         </div>
         <div className={styles.back}>
           <h1>{project.name}</h1>
@@ -27,7 +31,9 @@ const Cards = ({ project }) => {
               project.icons.map((icon, index) => (
                 <span
                   key={index}
-                  className={`text-white bg-slate-900 rounded-[50%] text-4xl p-1.5 transition-colors duration-300 ${hoverColors[index % hoverColors.length]}`}
+                  className={`text-white bg-slate-900 rounded-[50%] text-4xl p-1.5 transition-colors duration-300 ${
+                    hoverColors[index % hoverColors.length]
+                  }`}
                 >
                   {icon}
                 </span>
