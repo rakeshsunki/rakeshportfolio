@@ -6,18 +6,25 @@ import AboutMe from "./components/Aboutme.jsx";
 import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects/Projects.jsx";
 import Endpage from "./components/Contacts&Hobbies/Endpage.jsx";
-const route = createBrowserRouter([
-  { path: "/", element: <App /> },
-  { path: "/about", element: <AboutMe /> },
-  { path: "/skills", element: <Skills /> },
-  { path: "/projects", element: <Projects /> },
-  { path: "/contacts", element: <Endpage /> },
+import Layout from "./Layout.jsx"; // We'll create this next
+
+// Create router with proper layout
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <App /> },
+      { path: "about", element: <AboutMe /> },
+      { path: "skills", element: <Skills /> },
+      { path: "projects", element: <Projects /> },
+      { path: "contacts", element: <Endpage /> }
+    ]
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={route}>
-      <App />
-    </RouterProvider>
+    <RouterProvider router={router} />
   </StrictMode>
 );

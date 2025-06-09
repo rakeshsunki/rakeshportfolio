@@ -9,7 +9,7 @@ const Skills = () => {
   const [isOn, setIsOn] = useState(false);
   return (
     <>
-      <div id="skills" className="flex items-center ml-[2rem]">
+      <div id="skills" className="flex items-center ml-[2rem] mt-16">
         <span className="h-1 w-[10vw] bg-amber-100"></span>
         <span className={`${styles.About}`}>Skills</span>
 

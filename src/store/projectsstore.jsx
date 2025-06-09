@@ -19,6 +19,8 @@ export const ProjectsList = [
     github: "https://github.com/rakeshsunki/Airbnb.git",
     play: "https://airbnb-50pt.onrender.com",
     icons: [<FaNodeJs />, <SiMongodb />, <RiTailwindCssFill />, <SiMongoose />],
+    description:
+      "Airbnb clone built with Node.js, MongoDB, and Tailwind CSS. It replicates the core features of Airbnb, allowing users to book and list properties.",
   },
   {
     name: "Amazon Clone",
@@ -26,6 +28,8 @@ export const ProjectsList = [
     github: "https://github.com/rakeshsunki/amazonclone.git",
     play: "https://radiant-zabaione-2af60f.netlify.app/",
     icons: [<FaReact />, <SiRedux />, <FaBootstrap />, <FaJsSquare />],
+    description:
+      "Amazon clone using React, Redux, and Bootstrap. It mimics Amazon's UI and functionality, including product listings, shopping cart, and user authentication.",
   },
   {
     name: "Myntra CLone",
@@ -33,6 +37,8 @@ export const ProjectsList = [
     github: "https://github.com/rakeshsunki/myntraclone.git",
     play: "https://rainbow-meerkat-a04a45.netlify.app/",
     icons: [<FaReact />, <SiRedux />, <FaBootstrap />, <FaJsSquare />],
+    description:
+      "Myntra clone built with React, Redux, and Bootstrap. It replicates Myntra's core features, focusing on fashion e-commerce.",
   },
   {
     name: "FreshBasket",
@@ -40,6 +46,8 @@ export const ProjectsList = [
     github: "https://github.com/rakeshsunki/freshbasket.git",
     play: "https://lively-cocada-1b28ba.netlify.app/",
     icons: [<FaReact />, <SiRedux />, <FaBootstrap />, <FaJsSquare />],
+    description:
+      "FreshBasket is a grocery shopping app clone using React, Redux, and Bootstrap. It allows users to browse products, add them to the cart, and checkout.",
   },
   {
     name: "Soil Classification Using SVM",
@@ -48,6 +56,8 @@ export const ProjectsList = [
       "https://drive.google.com/drive/folders/1IFsWUk-grmJtjfP997KpBP8e1sy3IH86?usp=share_link ",
     play: "#",
     icons: [<FaPython />, <TbMathMax />],
+    description:
+      "A project on soil classification using Support Vector Machine (SVM) implemented in Python. It classifies soil types based on various features.",
   },
 ];
 export const MiniProjects = [
@@ -57,6 +67,8 @@ export const MiniProjects = [
     github: "https://github.com/rakeshsunki/Calculator.git",
     play: "https://inquisitive-youtiao-74271a.netlify.app/",
     icons: [<FaHtml5 />, <FaCss3Alt />, <FaJsSquare />, <FaReact />],
+    description:
+      "A simple calculator app built with HTML, CSS, and JavaScript. It performs basic arithmetic operations.",
   },
   {
     name: "CurrencyConverter",
@@ -64,6 +76,8 @@ export const MiniProjects = [
     github: "https://github.com/rakeshsunki/currencyconverter.git",
     play: "https://profound-fairy-f9da98.netlify.app/",
     icons: [<FaHtml5 />, <FaCss3Alt />, <FaJsSquare />],
+    description:
+      "A currency converter app that converts amounts between different currencies using real-time exchange rates.",
   },
   {
     name: "GAME Rock Paper Scissors",
@@ -71,6 +85,8 @@ export const MiniProjects = [
     github: "https://github.com/rakeshsunki/rockpaperscissors.git",
     play: "https://delicate-strudel-98babd.netlify.app/",
     icons: [<FaHtml5 />, <FaCss3Alt />, <FaJsSquare />],
+    description:
+      "A web-based Rock Paper Scissors game built with HTML, CSS, and JavaScript. It allows users to play against the computer.",
   },
   {
     name: "Vector Using linked list",
@@ -78,5 +94,7 @@ export const MiniProjects = [
     github: "https://github.com/rakeshsunki/vector.git",
     play: "#",
     icons: [<SiCplusplus />],
+    description:
+      "A project demonstrating vector implementation using linked list in C++. It showcases dynamic memory allocation and pointer manipulation.",
   },
 ];
