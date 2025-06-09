@@ -6,7 +6,7 @@ import AboutMe from "./components/Aboutme.jsx";
 import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects/Projects.jsx";
 import Endpage from "./components/Contacts&Hobbies/Endpage.jsx";
-import Layout from "./Layout.jsx"; // We'll create this next
+import Layout from "./components/Layout.jsx"; // We'll create this next
 
 // Create router with proper layout
 const router = createBrowserRouter([
@@ -18,9 +18,9 @@ const router = createBrowserRouter([
       { path: "about", element: <AboutMe /> },
       { path: "skills", element: <Skills /> },
       { path: "projects", element: <Projects /> },
-      { path: "contacts", element: <Endpage /> }
-    ]
-  }
+      { path: "contacts", element: <Endpage /> },
+    ],
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
