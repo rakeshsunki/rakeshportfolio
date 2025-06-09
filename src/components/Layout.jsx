@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import SideBar from "./components/Sidebar";
+import Navbar from "./Navbar";
+import SideBar from "./Sidebar";
 import { FaBars } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -23,7 +23,7 @@ const Layout = () => {
     <div className="min-h-screen bg-slate-900 overflow-x-hidden">
       {/* Fixed Navigation */}
       <Navbar />
-      
+
       {/* Mobile menu button */}
       <motion.div
         className="fixed right-10 top-5 text-white text-lg cursor-pointer z-30 md:hidden"
@@ -33,7 +33,7 @@ const Layout = () => {
       >
         <FaBars />
       </motion.div>
-      
+
       {/* Page Content with Animations */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -47,7 +47,7 @@ const Layout = () => {
           <Outlet />
         </motion.div>
       </AnimatePresence>
-      
+
       {/* Sidebar */}
       <SideBar state={sidebarState} set={setSidebarState} />
     </div>
