@@ -1,13 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import AboutMe from "./components/Aboutme";
-import Spinner from "./components/Animation/3Danimation";
-import Endpage from "./components/Contacts&Hobbies/Endpage";
-import Footer from "./components/Footer";
 import LandingPage from "./components/landingpage";
-import Projects from "./components/Projects/Projects";
-import Skills from "./components/Skills";
-import { BsRocketFill } from "react-icons/bs";
 import Navbar from "./components/Navbar";
 import SideBar from "./components/Sidebar";
 import { FaBars } from "react-icons/fa6";
