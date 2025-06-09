@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import LandingPage from "./components/landingpage.jsx";
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./components/Navigationbar.jsx";
 import SideBar from "./components/Sidebar.jsx";
 import { FaBars } from "react-icons/fa6";
 import { motion } from "framer-motion";

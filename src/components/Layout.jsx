@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Navbar from "./Navbar.jsx";
+import Navbar from "./Navigationbar.jsx";
 import SideBar from "./Sidebar.jsx";
 import { FaBars } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";

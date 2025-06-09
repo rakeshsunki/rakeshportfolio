@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import SideBar from "./Sidebar";
-import Navbar from "./Navbar"; // Import the new Navbar
+import Navbar from "./Navigationbar"; // Import the new Navbar
 import Typewriter from "./typewriter";
 import styles from "./landingpage.module.css";
 import { motion, easeInOut } from "framer-motion"; // Import easeInOut

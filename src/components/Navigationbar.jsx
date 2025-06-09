@@ -85,7 +85,9 @@ const NavItem = ({ path, label, index, isActive, onClick }) => {
     >
       <span
         className={`${
-          isActive ? "text-white font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]" : "text-gray-200"
+          isActive
+            ? "text-white font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]"
+            : "text-gray-200"
         } group-hover:text-white transition-colors`}
       >
         {label}
