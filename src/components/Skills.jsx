@@ -1,22 +1,35 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import IMAGES from "../store/images";
 import { motion } from "framer-motion";
-import styles from "./landingpage.module.css";
 import Spinner from "./Animation/3Danimation";
 
 const Skills = () => {
   const [activeView, setActiveView] = useState("carousel");
   const [activeCategory, setActiveCategory] = useState("all");
   const imageSet = [...IMAGES];
-  
+
   // Group skills by category
   const categories = {
     all: imageSet,
-    frontend: imageSet.filter(img => ["html", "CSS3", "JavaScript", "REACT", "REDUX", "TAILWINDCSS", "MUI"].includes(img.name)),
-    backend: imageSet.filter(img => ["C", "C++", "PYTHON", "SQL"].includes(img.name)),
-    data: imageSet.filter(img => ["PANDAS", "POWERBI", "SQL", "PYTHON"].includes(img.name))
+    frontend: imageSet.filter((img) =>
+      [
+        "html",
+        "CSS3",
+        "JavaScript",
+        "REACT",
+        "REDUX",
+        "TAILWINDCSS",
+        "MUI",
+      ].includes(img.name)
+    ),
+    backend: imageSet.filter((img) =>
+      ["MongoDB", "Mongoose", "Node-js", "SQL", "Express"].includes(img.name)
+    ),
+    data: imageSet.filter((img) =>
+      ["PANDAS", "POWERBI", "SQL", "PYTHON"].includes(img.name)
+    ),
   };
-  
+
   const filteredImages = categories[activeCategory] || categories.all;
 
   return (
@@ -28,24 +41,24 @@ const Skills = () => {
       transition={{ duration: 0.8 }}
     >
       {/* Header with animated lines */}
-      <motion.div 
+      <motion.div
         className="flex items-center justify-center mb-10"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <motion.span 
+        <motion.span
           className="h-1 w-[10vw] bg-blue-500"
           initial={{ width: 0 }}
           animate={{ width: "10vw" }}
           transition={{ duration: 0.8, delay: 0.3 }}
         ></motion.span>
-        
+
         <h2 className="text-3xl md:text-4xl font-bold text-white mx-4 uppercase tracking-wider px-3">
           My Skills
         </h2>
-        
-        <motion.span 
+
+        <motion.span
           className="h-1 w-[10vw] bg-blue-500"
           initial={{ width: 0 }}
           animate={{ width: "10vw" }}
@@ -60,17 +73,17 @@ const Skills = () => {
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-2 flex justify-center">
             <ViewToggle activeView={activeView} setActiveView={setActiveView} />
           </div>
-          
+
           {/* Category Filter - Only shown in carousel view */}
           {activeView === "carousel" && (
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-2 flex justify-center flex-wrap">
-              {["all", "frontend", "backend", "data"].map(category => (
+              {["all", "frontend", "backend", "data"].map((category) => (
                 <motion.button
                   key={category}
                   onClick={() => setActiveCategory(category)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition-all ${
-                    activeCategory === category 
-                      ? "bg-blue-600 text-white" 
+                    activeCategory === category
+                      ? "bg-blue-600 text-white"
                       : "text-gray-300 hover:text-white"
                   }`}
                   whileHover={{ scale: 1.05 }}
@@ -85,7 +98,7 @@ const Skills = () => {
       </div>
 
       {/* Skills Display Area */}
-      <motion.div 
+      <motion.div
         className="max-w-6xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -109,31 +122,31 @@ const Skills = () => {
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-2"
           >
             {filteredImages.map((skill, index) => (
-              <SkillCard 
-                key={skill.name} 
-                skill={skill} 
-                index={index} 
-              />
+              <SkillCard key={skill.name} skill={skill} index={index} />
             ))}
           </motion.div>
         )}
       </motion.div>
 
       {/* Skill description area */}
-      <motion.div 
+      <motion.div
         className="mt-16 max-w-2xl mx-auto text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 0.6 }}
       >
-        <p className="text-blue-300 text-lg font-medium mb-3">Professional Competencies</p>
+        <p className="text-blue-300 text-lg font-medium mb-3">
+          Professional Competencies
+        </p>
         <h3 className="text-white text-2xl md:text-3xl font-bold mb-4">
           Delivering High-Quality Solutions
         </h3>
         <p className="text-gray-400 leading-relaxed">
-          With expertise in both frontend and backend technologies, along with a strong foundation in 
-          data structures and algorithms, I create responsive, scalable, and efficient applications.
-          My continuous learning approach ensures I stay updated with the latest industry trends and best practices.
+          With expertise in both frontend and backend technologies, along with a
+          strong foundation in data structures and algorithms, I create
+          responsive, scalable, and efficient applications. My continuous
+          learning approach ensures I stay updated with the latest industry
+          trends and best practices.
         </p>
       </motion.div>
     </motion.div>
@@ -161,7 +174,7 @@ const ViewToggle = ({ activeView, setActiveView }) => {
         )}
         Grid View
       </motion.button>
-      
+
       <motion.button
         className={`relative px-5 py-2 rounded-md text-sm font-medium ${
           activeView === "3d" ? "text-white" : "text-gray-400"
@@ -204,27 +217,31 @@ const SkillCard = ({ skill, index }) => {
     >
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       <div className="flex flex-col items-center justify-center h-full p-4">
-        <motion.div 
+        <motion.div
           className="w-16 h-16 mb-3 flex items-center justify-center"
           whileHover={{ rotate: 5, scale: 1.1 }}
         >
-          <img 
-            src={`./${skill.link}`} 
-            alt={skill.name} 
-            className="max-w-full max-h-full object-contain" 
+          <img
+            src={`./${skill.link}`}
+            alt={skill.name}
+            className="max-w-full max-h-full object-contain"
           />
         </motion.div>
         <span className="text-blue-100 font-medium text-center group-hover:text-white transition-colors">
           {skill.name}
         </span>
-        
+
         {/* Experience level indicator */}
         <div className="mt-2 w-full bg-slate-700/50 h-1.5 rounded-full overflow-hidden">
-          <motion.div 
+          <motion.div
             className="h-full bg-gradient-to-r from-blue-500 to-indigo-500"
             initial={{ width: 0 }}
             animate={{ width: `${(skill.level || 75) + 10}%` }}
-            transition={{ delay: 0.05 * index + 0.3, duration: 0.8, ease: "easeOut" }}
+            transition={{
+              delay: 0.05 * index + 0.3,
+              duration: 0.8,
+              ease: "easeOut",
+            }}
           />
         </div>
       </div>

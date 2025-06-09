@@ -6,29 +6,57 @@ import { useNavigate } from "react-router-dom";
 
 const SideBar = ({ state, set }) => {
   const navigate = useNavigate();
-  
+
   const navigateToSection = (path) => {
     navigate(path);
     set(false); // Close sidebar after navigation
   };
-  
+
   // Animation variants
   const sidebarVariants = {
     open: { x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } },
-    closed: { x: "100%", transition: { type: "spring", stiffness: 300, damping: 30 } }
+    closed: {
+      x: "100%",
+      transition: { type: "spring", stiffness: 300, damping: 30 },
+    },
   };
-  
+
   const itemVariants = {
     open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: 20 }
+    closed: { opacity: 0, x: 20 },
   };
 
   const menuItems = [
-    { path: "/", icon: <FaHome className="text-blue-400" />, label: "Home", hoverClass: "hover:bg-blue-700" },
-    { path: "/about", icon: <IoIosPerson className="text-amber-400" />, label: "About Me", hoverClass: "hover:bg-amber-700" },
-    { path: "/skills", icon: <HiMiniWrenchScrewdriver className="text-green-400" />, label: "Skills", hoverClass: "hover:bg-green-700" },
-    { path: "/projects", icon: <FaFolderOpen className="text-purple-400" />, label: "Projects", hoverClass: "hover:bg-purple-700" },
-    { path: "/contacts", icon: <FaPhone className="text-red-400" />, label: "Contacts", hoverClass: "hover:bg-red-700" }
+    {
+      path: "/",
+      icon: <FaHome className="text-blue-400" />,
+      label: "Home",
+      hoverClass: "hover:bg-blue-700",
+    },
+    {
+      path: "/about",
+      icon: <IoIosPerson className="text-amber-400" />,
+      label: "About Me",
+      hoverClass: "hover:bg-amber-700",
+    },
+    {
+      path: "/skills",
+      icon: <HiMiniWrenchScrewdriver className="text-green-400" />,
+      label: "Skills",
+      hoverClass: "hover:bg-green-700",
+    },
+    {
+      path: "/projects",
+      icon: <FaFolderOpen className="text-purple-400" />,
+      label: "Projects",
+      hoverClass: "hover:bg-purple-700",
+    },
+    {
+      path: "/contacts",
+      icon: <FaPhone className="text-red-400" />,
+      label: "Contacts",
+      hoverClass: "hover:bg-red-700",
+    },
   ];
 
   return (
@@ -43,7 +71,7 @@ const SideBar = ({ state, set }) => {
           onClick={() => set(false)}
         />
       )}
-      
+
       {/* Sidebar */}
       <motion.div
         className="fixed top-0 right-0 h-full bg-gradient-to-b from-slate-900 to-slate-950 text-xl font-sans text-white p-8 w-[80vw] md:w-[25vw] z-50 shadow-lg overflow-hidden"
@@ -62,17 +90,21 @@ const SideBar = ({ state, set }) => {
         </motion.div>
 
         {/* User Profile Section */}
-        <motion.div 
+        <motion.div
           className="flex flex-col items-center mt-6 mb-8"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <motion.div 
+          <motion.div
             className="w-20 h-20 rounded-full overflow-hidden border-2 border-blue-400 mb-3"
             whileHover={{ scale: 1.05 }}
           >
-            <img src="./RakeshPassportsize.jpg" className="w-full h-full object-cover" alt="Profile" />
+            <img
+              src="./RakeshPassportsize.jpg"
+              className="w-full h-full object-cover"
+              alt="Profile"
+            />
           </motion.div>
           <h2 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Rakesh Sunki
@@ -81,13 +113,13 @@ const SideBar = ({ state, set }) => {
         </motion.div>
 
         {/* Divider */}
-        <motion.div 
+        <motion.div
           className="h-px w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent mb-6"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 0.3 }}
         />
-        
+
         {/* Navigation Links with Staggered Animation */}
         <div className="w-full flex flex-col space-y-3">
           {menuItems.map((item, index) => (
@@ -101,9 +133,9 @@ const SideBar = ({ state, set }) => {
               initial="closed"
               animate={state ? "open" : "closed"}
               transition={{ delay: 0.1 * index }}
-              whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)" 
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
               }}
               whileTap={{ scale: 0.98 }}
             >

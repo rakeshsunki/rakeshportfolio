@@ -17,6 +17,8 @@ const Layout = () => {
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Force a re-render by setting a layout state that depends on location
+    // This is just to trigger a re-render
   }, [location.pathname]);
 
   return (
@@ -34,10 +36,10 @@ const Layout = () => {
         <FaBars />
       </motion.div>
 
-      {/* Page Content with Animations */}
+      {/* Page Content with Animations - Key change is here */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={location.pathname}
+          key={location.pathname} // This forces a remount when the path changes
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
