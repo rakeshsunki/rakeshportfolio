@@ -1,36 +1,73 @@
-import { useState } from "react";
-import IMAGES from "../store/images";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Spinner from "./Animation/3Danimation";
+
+// Define skills directly in the component to avoid import issues
+const SKILLS = [
+  { name: "Html", link: "Html.svg", level: 90 },
+  { name: "CSS", link: "CSS.svg", level: 85 },
+  { name: "JavaScript", link: "JavaScript.svg", level: 85 },
+  { name: "REACT", link: "REACT.svg", level: 80 },
+  { name: "REDUX", link: "REDUX.svg", level: 75 },
+  { name: "TAILWINDCSS", link: "TAILWINDCSS.svg", level: 80 },
+  { name: "MUI", link: "MUI.svg", level: 75 },
+  { name: "BOOTSTRAP", link: "BOOTSTRAP.svg", level: 70 },
+  { name: "MongoDB", link: "MongoDB.svg", level: 80 },
+  { name: "Mongoose", link: "Mongoose.svg", level: 75 },
+  { name: "Node-js", link: "Node-js.svg", level: 80 },
+  { name: "SQL", link: "SQL.svg", level: 75 },
+  { name: "Express", link: "Express.svg", level: 80 },
+  { name: "C", link: "C.svg", level: 85 },
+  { name: "C++", link: "C++.svg", level: 85 },
+  { name: "PYTHON", link: "PYTHON.svg", level: 75 },
+  { name: "PANDAS", link: "PANDAS.svg", level: 70 },
+  { name: "POWERBI", link: "POWERBI.svg", level: 70 },
+  { name: "DSA", link: "DSA.svg", level: 80 },
+];
+
+// Predefined categories
+const CATEGORIES = {
+  all: SKILLS,
+  frontend: SKILLS.filter((skill) =>
+    [
+      "REACT",
+      "REDUX",
+      "Html",
+      "CSS",
+      "JavaScript",
+      "TAILWINDCSS",
+      "MUI",
+      "BOOTSTRAP",
+    ].includes(skill.name)
+  ),
+  backend: SKILLS.filter((skill) =>
+    [
+      "MongoDB",
+      "Mongoose",
+      "Node-js",
+      "Express",
+      "SQL",
+      "C",
+      "C++",
+      "PYTHON",
+    ].includes(skill.name)
+  ),
+  data: SKILLS.filter((skill) =>
+    ["PANDAS", "POWERBI", "SQL", "PYTHON", "MongoDB"].includes(skill.name)
+  ),
+};
 
 const Skills = () => {
   const [activeView, setActiveView] = useState("carousel");
   const [activeCategory, setActiveCategory] = useState("all");
-  const imageSet = [...IMAGES];
+  const [isReady, setIsReady] = useState(false);
 
-  // Group skills by category
-  const categories = {
-    all: imageSet,
-    frontend: imageSet.filter((img) =>
-      [
-        "html",
-        "CSS3",
-        "JavaScript",
-        "REACT",
-        "REDUX",
-        "TAILWINDCSS",
-        "MUI",
-      ].includes(img.name)
-    ),
-    backend: imageSet.filter((img) =>
-      ["MongoDB", "Mongoose", "Node-js", "SQL", "Express"].includes(img.name)
-    ),
-    data: imageSet.filter((img) =>
-      ["PANDAS", "POWERBI", "SQL", "PYTHON"].includes(img.name)
-    ),
-  };
+  // Make sure component is mounted before animating
+  useEffect(() => {
+    setIsReady(true);
+  }, []);
 
-  const filteredImages = categories[activeCategory] || categories.all;
+  const filteredSkills = CATEGORIES[activeCategory] || CATEGORIES.all;
 
   return (
     <motion.div
@@ -40,30 +77,16 @@ const Skills = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      {/* Header with animated lines */}
+      {/* Header - Simple version */}
       <motion.div
         className="flex items-center justify-center mb-10"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <motion.span
-          className="h-1 w-[10vw] bg-blue-500"
-          initial={{ width: 0 }}
-          animate={{ width: "10vw" }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        ></motion.span>
-
-        <h2 className="text-3xl md:text-4xl font-bold text-white mx-4 uppercase tracking-wider px-3">
+        <h2 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-wider px-3">
           My Skills
         </h2>
-
-        <motion.span
-          className="h-1 w-[10vw] bg-blue-500"
-          initial={{ width: 0 }}
-          animate={{ width: "10vw" }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        ></motion.span>
       </motion.div>
 
       {/* View Switcher */}
@@ -77,7 +100,7 @@ const Skills = () => {
           {/* Category Filter - Only shown in carousel view */}
           {activeView === "carousel" && (
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-2 flex justify-center flex-wrap">
-              {["all", "frontend", "backend", "data"].map((category) => (
+              {Object.keys(CATEGORIES).map((category) => (
                 <motion.button
                   key={category}
                   onClick={() => setActiveCategory(category)}
@@ -104,28 +127,34 @@ const Skills = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        {activeView === "3d" ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <EnhancedSpinner />
-          </motion.div>
-        ) : (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-2"
-          >
-            {filteredImages.map((skill, index) => (
-              <SkillCard key={skill.name} skill={skill} index={index} />
-            ))}
-          </motion.div>
-        )}
+        <AnimatePresence mode="wait">
+          {activeView === "3d" ? (
+            <motion.div
+              key="spinner"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="rounded-2xl overflow-hidden border border-blue-500/20 shadow-xl shadow-blue-500/10 backdrop-blur-sm">
+                <Spinner />
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="grid"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 px-2"
+            >
+              {filteredSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
 
       {/* Skill description area */}
@@ -168,7 +197,6 @@ const ViewToggle = ({ activeView, setActiveView }) => {
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-md -z-10"
             layoutId="toggleBackground"
-            initial={false}
             transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
           />
         )}
@@ -186,7 +214,6 @@ const ViewToggle = ({ activeView, setActiveView }) => {
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-md -z-10"
             layoutId="toggleBackground"
-            initial={false}
             transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
           />
         )}
@@ -196,17 +223,10 @@ const ViewToggle = ({ activeView, setActiveView }) => {
   );
 };
 
-// Enhanced Spinner Component (just add some improvements to the container)
-const EnhancedSpinner = () => {
-  return (
-    <div className="rounded-2xl overflow-hidden border border-blue-500/20 shadow-xl shadow-blue-500/10 backdrop-blur-sm">
-      <Spinner />
-    </div>
-  );
-};
-
-// New Skill Card Component
+// Skill Card with error handling and proper animation
 const SkillCard = ({ skill, index }) => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <motion.div
       className="group relative h-40 rounded-xl overflow-hidden border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900"
@@ -221,22 +241,30 @@ const SkillCard = ({ skill, index }) => {
           className="w-16 h-16 mb-3 flex items-center justify-center"
           whileHover={{ rotate: 5, scale: 1.1 }}
         >
-          <img
-            src={`./${skill.link}`}
-            alt={skill.name}
-            className="max-w-full max-h-full object-contain"
-          />
+          {!imageError ? (
+            <img
+              src={`./${skill.link}`}
+              alt={skill.name}
+              className="max-w-full max-h-full object-contain"
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <div className="w-16 h-16 flex items-center justify-center bg-slate-700 text-white text-xs rounded-full">
+              {skill.name}
+            </div>
+          )}
         </motion.div>
         <span className="text-blue-100 font-medium text-center group-hover:text-white transition-colors">
           {skill.name}
         </span>
 
-        {/* Experience level indicator */}
+        {/* Safe Level indicator using transform instead of width */}
         <div className="mt-2 w-full bg-slate-700/50 h-1.5 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-blue-500 to-indigo-500"
-            initial={{ width: 0 }}
-            animate={{ width: `${(skill.level || 75) + 10}%` }}
+            className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 origin-left"
+            style={{ width: "100%" }}
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: ((skill.level || 75) + 10) / 100 }}
             transition={{
               delay: 0.05 * index + 0.3,
               duration: 0.8,

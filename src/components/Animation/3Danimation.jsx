@@ -5,21 +5,22 @@ import { motion } from "framer-motion";
 const Spinner = () => {
   const [isRotating, setIsRotating] = useState(true);
   const [manualRotation, setManualRotation] = useState(0);
-  
+  const [loadingErrors, setLoadingErrors] = useState({});
+
   // Skills with levels (1-100)
   const skills = [
     { name: "JavaScript", icon: "JavaScript.svg", level: 90 },
     { name: "React", icon: "REACT.svg", level: 85 },
     { name: "Redux", icon: "REDUX.svg", level: 80 },
-    { name: "HTML", icon: "html.svg", level: 95 },
-    { name: "CSS", icon: "CSS3.svg", level: 90 },
+    { name: "HTML", icon: "Html.svg", level: 95 },
+    { name: "CSS", icon: "CSS.svg", level: 90 },
     { name: "TailwindCSS", icon: "TAILWINDCSS.svg", level: 85 },
     { name: "Material UI", icon: "MUI.svg", level: 75 },
     // Backend technologies added
-    { name: "Node.js", icon: "nodejs.svg", level: 85 },
-    { name: "Express", icon: "express.svg", level: 80 },
-    { name: "MongoDB", icon: "mongodb.svg", level: 80 },
-    { name: "Mongoose", icon: "mongoose.svg", level: 75 },
+    { name: "Node.js", icon: "Node-js.svg", level: 85 },
+    { name: "Express", icon: "Express.svg", level: 80 },
+    { name: "MongoDB", icon: "MongoDB.svg", level: 80 },
+    { name: "Mongoose", icon: "Mongoose.svg", level: 75 },
     // Existing backend/other skills
     { name: "C++", icon: "C++.svg", level: 80 },
     { name: "C", icon: "C.svg", level: 85 },
@@ -34,39 +35,45 @@ const Spinner = () => {
   useEffect(() => {
     const handleScroll = (e) => {
       if (!isRotating) {
-        setManualRotation(prev => prev + (e.deltaY * 0.2));
+        setManualRotation((prev) => prev + e.deltaY * 0.2);
       }
     };
-    
-    window.addEventListener('wheel', handleScroll);
-    return () => window.removeEventListener('wheel', handleScroll);
+
+    window.addEventListener("wheel", handleScroll);
+    return () => window.removeEventListener("wheel", handleScroll);
   }, [isRotating]);
+
+  const handleImageError = (skillName) => {
+    setLoadingErrors((prev) => ({ ...prev, [skillName]: true }));
+  };
 
   return (
     <div className={styles.Banner}>
       {/* Floating particles effect */}
       <ParticlesEffect />
-      
-      <motion.div 
+
+      <motion.div
         className="absolute bottom-4 left-0 right-0 flex justify-center z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <button 
+        <button
           className="px-4 py-2 rounded-full bg-blue-600/30 backdrop-blur-sm text-white text-sm border border-blue-500/30 hover:bg-blue-600/50 transition-colors"
           onClick={() => setIsRotating(!isRotating)}
         >
           {isRotating ? "Pause Rotation" : "Start Rotation"}
         </button>
       </motion.div>
-      
-      <div 
-        className={styles.Slider} 
-        style={{ 
+
+      <div
+        className={styles.Slider}
+        style={{
           "--quantity": skills.length,
           animation: isRotating ? "autoRun 25s linear infinite" : "none",
-          transform: !isRotating ? `perspective(1200px) rotateX(-10deg) rotateY(${manualRotation}deg)` : undefined
+          transform: !isRotating
+            ? `perspective(1200px) rotateX(-10deg) rotateY(${manualRotation}deg)`
+            : undefined,
         }}
       >
         {skills.map((skill, index) => (
@@ -78,16 +85,27 @@ const Spinner = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
           >
-            <img src={`./${skill.icon}`} alt={skill.name} />
+            {loadingErrors[skill.name] ? (
+              <div className="w-full h-4/5 flex items-center justify-center bg-slate-800 rounded-lg">
+                <span className="text-blue-400 text-sm">{skill.name}</span>
+              </div>
+            ) : (
+              <img
+                src={`./${skill.icon}`}
+                alt={skill.name}
+                onError={() => handleImageError(skill.name)}
+              />
+            )}
             <span>{skill.name}</span>
-            
-            {/* Skill level indicator */}
+
+            {/* Fixed skill level indicator */}
             <div className="h-1 w-full bg-slate-700/50 mt-1 rounded-full overflow-hidden">
-              <motion.div 
-                className="h-full bg-gradient-to-r from-blue-500 to-indigo-500"
-                initial={{ width: 0 }}
-                animate={{ width: `${skill.level}%` }}
-                transition={{ delay: 0.5 + (index * 0.1), duration: 0.8 }}
+              <motion.div
+                className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 origin-left"
+                style={{ width: "100%" }}
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: skill.level / 100 }}
+                transition={{ delay: 0.5 + index * 0.1, duration: 0.8 }}
               />
             </div>
           </motion.div>
