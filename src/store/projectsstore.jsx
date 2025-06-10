@@ -20,25 +20,7 @@ export const ProjectsList = [
     play: "https://airbnb-50pt.onrender.com",
     icons: [<FaNodeJs />, <SiMongodb />, <RiTailwindCssFill />, <SiMongoose />],
     description:
-      "Airbnb clone built with Node.js, MongoDB, and Tailwind CSS. It replicates the core features of Airbnb, allowing users to book and list properties.",
-  },
-  {
-    name: "Amazon Clone",
-    previewShot: "./amazon.png",
-    github: "https://github.com/rakeshsunki/amazonclone.git",
-    play: "https://radiant-zabaione-2af60f.netlify.app/",
-    icons: [<FaReact />, <SiRedux />, <FaBootstrap />, <FaJsSquare />],
-    description:
-      "Amazon clone using React, Redux, and Bootstrap. It mimics Amazon's UI and functionality, including product listings, shopping cart, and user authentication.",
-  },
-  {
-    name: "Myntra CLone",
-    previewShot: "./Myntra.png",
-    github: "https://github.com/rakeshsunki/myntraclone.git",
-    play: "https://rainbow-meerkat-a04a45.netlify.app/",
-    icons: [<FaReact />, <SiRedux />, <FaBootstrap />, <FaJsSquare />],
-    description:
-      "Myntra clone built with React, Redux, and Bootstrap. It replicates Myntra's core features, focusing on fashion e-commerce.",
+      "Airbnb clone built with Node.js, MongoDB, and Tailwind CSS. It replicates the core features of Airbnb, allowing users to book and list properties.This is a Full Stack Project based on Server Side Rendering.",
   },
   {
     name: "FreshBasket",
@@ -47,7 +29,25 @@ export const ProjectsList = [
     play: "https://lively-cocada-1b28ba.netlify.app/",
     icons: [<FaReact />, <SiRedux />, <FaBootstrap />, <FaJsSquare />],
     description:
-      "FreshBasket is a grocery shopping app clone using React, Redux, and Bootstrap. It allows users to browse products, add them to the cart, and checkout.",
+      "FreshBasket is a grocery shopping app clone using React, Redux, and Bootstrap. It allows users to browse products, add them to the cart, and checkout.This project focuses on the frontend, providing a responsive and user-friendly interface, Client Side Rendering.",
+  },
+  {
+    name: "Amazon Clone",
+    previewShot: "./amazon.png",
+    github: "https://github.com/rakeshsunki/amazonclone.git",
+    play: "https://radiant-zabaione-2af60f.netlify.app/",
+    icons: [<FaReact />, <SiRedux />, <FaBootstrap />, <FaJsSquare />],
+    description:
+      "Amazon clone using React, Redux, and Bootstrap. It mimics Amazon's UI and functionality, including product listings, shopping cart, only frontend.",
+  },
+  {
+    name: "Myntra CLone",
+    previewShot: "./Myntra.png",
+    github: "https://github.com/rakeshsunki/myntraclone.git",
+    play: "https://rainbow-meerkat-a04a45.netlify.app/",
+    icons: [<FaReact />, <SiRedux />, <FaBootstrap />, <FaJsSquare />],
+    description:
+      "Myntra clone built with React, Redux, and Bootstrap. It replicates Myntra's core features, focusing on fashion e-commerce. only frontend.",
   },
   {
     name: "Soil Classification Using SVM",
