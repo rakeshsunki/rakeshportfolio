@@ -12,6 +12,9 @@ const hoverColors = [
 ];
 
 const Cards = ({ project }) => {
+  // Check if the project should hide demo buttons
+  const shouldHidePlayButton = project.name.includes("Linked List") || project.name.includes("Soil Class");
+
   return (
     <motion.div
       className={`${styles.flipcard} mx-auto max-w-[320px]`}
@@ -75,7 +78,7 @@ const Cards = ({ project }) => {
           >
             Tech Stack Used
           </motion.p>
-          <div className="h-[30%] flex p-[1rem] justify-between items-center">
+          <div className={`h-[30%] flex p-[1rem] ${shouldHidePlayButton ? 'justify-center' : 'justify-between'} items-center`}>
             <motion.a
               href={project.github}
               target="_blank"
@@ -85,15 +88,19 @@ const Cards = ({ project }) => {
             >
               <FaCode />
             </motion.a>
-            <motion.a
-              href={project.play}
-              target="_blank"
-              className="bg-slate-800 text-green-300 w-[40px] h-[40px] flex items-center justify-center transition-all duration-500 hover:bg-green-900 hover:text-white rounded-full"
-              whileHover={{ scale: 1.2, rotate: 360 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <IoMdPlay />
-            </motion.a>
+            
+            {/* Conditionally render the Play button */}
+            {!shouldHidePlayButton && (
+              <motion.a
+                href={project.play}
+                target="_blank"
+                className="bg-slate-800 text-green-300 w-[40px] h-[40px] flex items-center justify-center transition-all duration-500 hover:bg-green-900 hover:text-white rounded-full"
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <IoMdPlay />
+              </motion.a>
+            )}
           </div>
         </div>
       </div>

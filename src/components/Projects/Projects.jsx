@@ -160,15 +160,20 @@ const Projects = () => {
                       >
                         <FaCode /> <span>View Code</span>
                       </motion.a>
-                      <motion.a
-                        href={project.play}
-                        target="_blank"
-                        className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <IoMdPlay /> <span>Live Demo</span>
-                      </motion.a>
+
+                      {/* Only render Live Demo button if not Linked List or Soil Class */}
+                      {!project.name.includes("Linked List") &&
+                        !project.name.includes("Soil Class") && (
+                          <motion.a
+                            href={project.play}
+                            target="_blank"
+                            className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <IoMdPlay /> <span>Live Demo</span>
+                          </motion.a>
+                        )}
                     </div>
                   </motion.div>
 
@@ -241,15 +246,20 @@ const Projects = () => {
                       >
                         <FaCode /> <span>View Code</span>
                       </motion.a>
-                      <motion.a
-                        href={project.play}
-                        target="_blank"
-                        className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <IoMdPlay /> <span>Live Demo</span>
-                      </motion.a>
+
+                      {/* Only render Live Demo button if not Linked List or Soil Class */}
+                      {!project.name.includes("Linked List") &&
+                        !project.name.includes("Soil Class") && (
+                          <motion.a
+                            href={project.play}
+                            target="_blank"
+                            className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.98 }}
+                          >
+                            <IoMdPlay /> <span>Live Demo</span>
+                          </motion.a>
+                        )}
                     </div>
                   </motion.div>
 

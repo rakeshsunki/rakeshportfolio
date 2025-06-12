@@ -89,7 +89,7 @@ export const MiniProjects = [
       "A web-based Rock Paper Scissors game built with HTML, CSS, and JavaScript. It allows users to play against the computer.",
   },
   {
-    name: "Vector Using linked list",
+    name: "Linked List using Vectors",
     previewShot: "./Miniproject.PNG",
     github: "https://github.com/rakeshsunki/vector.git",
     play: "#",
