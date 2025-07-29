@@ -17,8 +17,7 @@ const Layout = () => {
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Force a re-render by setting a layout state that depends on location
-    // This is just to trigger a re-render
+    console.log("Route changed to:", location.pathname); // Debug log
   }, [location.pathname]);
 
   return (
