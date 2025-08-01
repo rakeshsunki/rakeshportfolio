@@ -1,5 +1,12 @@
 import styles from "./landingpage.module.css";
 import { motion } from "framer-motion";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+
+function Model3D(props) {
+  const { scene } = useGLTF("/desk.glb");
+  return <primitive object={scene} {...props} />;
+}
 
 const AboutMe = () => {
   return (
@@ -118,9 +125,9 @@ const AboutMe = () => {
             </motion.b>
           </motion.p>
 
-          {/* Animated image */}
+          {/* Animated 3D model loaded from public folder */}
           <motion.div
-            className="w-[50%] md:w-[35%] mt-6 md:mt-0 flex items-center justify-center"
+            className="w-[50%] md:w-[35%] mt-6 md:mt-0 flex flex-col items-center justify-center relative"
             initial={{ x: 100, opacity: 0, rotate: -5 }}
             animate={{ x: 0, opacity: 1, rotate: 0 }}
             transition={{
@@ -135,11 +142,43 @@ const AboutMe = () => {
               transition: { duration: 0.3 },
             }}
           >
-            <img
-              src="./coding.png"
-              className="w-full rounded-lg shadow-lg shadow-amber-900/20"
-              alt="Coding illustration"
-            />
+            {/* 3D Interaction Label */}
+            <motion.div
+              className="bg-blue-600/20 backdrop-blur-sm px-3 py-1 rounded-full mb-3 border border-blue-400/30"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.8 }}
+            >
+              <span className="text-blue-300 text-sm font-medium">
+                🖱️ Interactive 3D Model
+              </span>
+            </motion.div>
+
+            <Canvas
+              style={{ width: "100%", height: "300px" }}
+              camera={{ position: [4, 3, 6], fov: 45 }}
+            >
+              <ambientLight intensity={0.6} />
+              <directionalLight position={[3, 3, 3]} intensity={0.8} />
+              <Model3D scale={0.8} position={[0, -1, 0]} />
+              <OrbitControls
+                enablePan={true}
+                enableZoom={true}
+                enableRotate={true}
+                autoRotate={true}
+                autoRotateSpeed={1}
+              />
+            </Canvas>
+
+            {/* Interaction Hint */}
+            <motion.p
+              className="text-gray-400 text-xs mt-2 text-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 2.2 }}
+            >
+              Drag to rotate • Scroll to zoom • Click and drag to explore
+            </motion.p>
           </motion.div>
         </div>
       </motion.div>
