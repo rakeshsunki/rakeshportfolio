@@ -66,7 +66,7 @@ const Navbar = () => {
         className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md shadow-blue-900/30"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        onClick={() => window.open("./RakeshResume.pdf", "_blank")}
+        onClick={() => window.open("./SunkiRakesh.pdf", "_blank")}
       >
         Resume
       </motion.button>

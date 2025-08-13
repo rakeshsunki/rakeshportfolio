@@ -112,7 +112,7 @@ const LandingPage = () => {
       {/* Download Button - FIXED VERSION */}
       <motion.button
         className="absolute top-[75%] left-[30%] md:left-[60%] md:top-[60%] rounded-[10px] bg-blue-600 hover:bg-blue-700 h-[2rem] w-[10rem] text-white"
-        onClick={() => window.open("./RakeshResume.pdf", "_blank")}
+        onClick={() => window.open("./SunkiRakesh.pdf", "_blank")}
         initial={{ opacity: 0, y: 50 }}
         animate={{
           opacity: 1,
