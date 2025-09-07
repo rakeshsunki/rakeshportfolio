@@ -101,7 +101,7 @@ const LandingPage = () => {
         }}
       >
         <motion.img
-          src="./RakeshPassportsize.jpg"
+          src="./RakeshPassportsize.jpeg"
           className="w-[97%] h-[97%] !rounded-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
