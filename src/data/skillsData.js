@@ -44,6 +44,16 @@ export const SKILLS_DATA = [
     years: "2+",
   },
   {
+    name: "Next.js",
+    link: "Nextjs.svg",
+    icon: "Nextjs.svg",
+    level: 80,
+    category: "frontend",
+    description: "React framework for SSR and full-stack apps",
+    color: "#000000",
+    years: "1+",
+  },
+  {
     name: "Redux",
     link: "REDUX.svg",
     icon: "REDUX.svg",

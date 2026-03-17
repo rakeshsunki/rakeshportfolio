@@ -101,7 +101,7 @@ const SideBar = ({ state, set }) => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src="./RakeshPassportsize.jpg"
+              src="./RakeshPassportsize.jpeg"
               className="w-full h-full object-cover"
               alt="Profile"
             />
